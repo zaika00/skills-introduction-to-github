@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentos do empregador</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <meta name="description" content="Formulário para admissão de funcionário"> 
+</head>
+
+<body>
+
+    <a href="Documentos_para_adimissao_de_funcionarios_FUNCIONARIO.html">Voltar para o formulário do funcionário</a>
+    
+
+    <h1>INFORMAÇÕES PARA A ADMISSÃO DE FUNCIONÁRIOS</h1>
+    <h2><u>Informações Necessárias do Empregador</u></h2>
+
+    <form>
+        <label for="cnpj">CNPJ da empresa:</label>
+        <input id="cnpj" type="text" placeholder="Digite o CNPJ da empresa" required maxlength="18">
+
+        <label for="data_contratacao">Data de contratação:</label>
+        <input id="data_contratacao" type="date" required>
+
+        <label for="funcao">Função:</label>
+        <input id="funcao" type="text" placeholder="Digite a função do funcionário" required>
+
+        <label for="salario">Salário (R$):</label>
+            <select id="salario">
+                <option value="" disabled selected>Selecione uma opção</option>
+                <option value="Com base no sindicato">Com base no sindicato</option>
+                <option value="Outro">outro</option>
+            </select>
+        <input id="salario_outro" type="number" style="width: 100px; display:none;" placeholder="R$" min="0">
+        <script>
+            document.getElementById('salario').addEventListener('change', function() 
+            {
+                const salarioOutro = document.getElementById('salario_outro');
+                if (this.value === 'Outro') 
+                {
+                    salarioOutro.style.display = 'inline-block';
+                    salarioOutro.required = true;
+                } else {
+                    salarioOutro.style.display = 'none';
+                    salarioOutro.required = false;
+                }
+            });
+        </script>
+
+        <label>Contrato de Experiência:</label>
+        <div style="margin-bottom: 18px;">
+            <input id="exp_45_45" type="radio" name="experiencia" value="45+45" required>
+            <label for="exp_45_45" style="display:inline; margin-right:15px;">45+45</label>
+            <input id="exp_30_60" type="radio" name="experiencia" value="30+60" required>
+            <label for="exp_30_60" style="display:inline; margin-right:15px;">30+60</label>
+            <input id="exp_outro" type="radio" name="experiencia" value="outro" required>
+            <label for="exp_outro" style="display:inline;">Outro:</label>
+            <input id="outro" type="number" style="width: 80px; display:inline-block; margin-left:8px;" placeholder="dias">
+        </div>
+
+        <hr>
+
+        <label>Horário de trabalho:</label>
+        <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px;">
+
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span>Das</span>
+                <input id="horario_inicio1" type="time" required style="width:120px;">
+                <span>às</span>
+                <input id="horario_fim1" type="time" required style="width:120px;">
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span>E das</span>
+                <input id="horario_inicio2" type="time" required style="width:120px;">
+                <span>às</span>
+                <input id="horario_fim2" type="time" required style="width:120px;">
+            </div>
+
+            <label for="sabado">Sábado:</label>
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <input id="sabado_sim" type="radio" name="sabado" value="sim" required>
+                <label for="sabado_sim">Sim</label>
+                <input id="sabado_nao" type="radio" name="sabado" value="nao" required>
+                <label for="sabado_nao">Não</label>
+                <div id="sabado-horarios" style="display:none; align-items: center; gap: 10px; margin-left: 20px;">
+                    <span>Das</span>
+                    <input id="sabado_inicio" type="time" style="width:100px;">
+                    <span>às</span>
+                    <input id="sabado_fim" type="time" style="width:100px;">
+                </div>
+            </div>
+            
+            <label for="domingo">Domingo:</label>
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <input id="domingo_sim" type="radio" name="domingo" value="sim" required>
+                <label for="domingo_sim">Sim</label>
+                <input id="domingo_nao" type="radio" name="domingo" value="nao" required>
+                <label for="domingo_nao">Não</label>
+                <div id="domingo-horarios" style="display:none; align-items: center; gap: 10px; margin-left: 20px;">
+                    <span>Das</span>
+                    <input id="domingo_inicio" type="time" style="width:100px;">
+                    <span>às</span>
+                    <input id="domingo_fim" type="time" style="width:100px;">
+                </div>
+            </div>
+        </div>  
+
+        <input type="submit" value="Enviar">
+        <input type="reset" value="Limpar">
+    </form>
+
+    <div class="obs-contato-wrapper">
+        <div>
+            <h2 class="observacoes">Observações</h2>
+            <div class="observacoes">
+                <p>Certifique-se de que todos os documentos estejam atualizados e legíveis. A falta de algum documento pode atrasar o processo de admissão.</p>
+                <p>Para mais informações, entre em contato com o departamento Pessoal.</p>
+                <p>Obrigado por preencher as informações necessárias para a admissão.</p>
+            </div>
+        </div>
+        <div>
+            <h2 class="observacoes">Contatos</h2>
+            <div class="observacoes">
+                <p>Email: asdasdsda@gmail.com</p>
+                <p>Telefone: (11) 91234-5678</p>
+                <p>Endereço: Rua Exemplo, 123, Bairro, Cidade, Estado, CEP 12345-678</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function()
+{
+    const cnpjInput = document.getElementById('cnpj');
+    cnpjInput.addEventListener('input', function() 
+    {
+        let v = cnpjInput.value.replace(/\D/g, '').slice(0, 14);
+        v = v.replace(/^(\d{2})(\d)/, '$1.$2');
+        v = v.replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3');
+        v = v.replace(/\.(\d{3})(\d)/, '.$1/$2');
+        v = v.replace(/(\d{4})(\d)/, '$1-$2');
+        cnpjInput.value = v;
+    });
+});
+    </script>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function()
+ {
+    const sabadoSim = document.getElementById('sabado_sim');
+    const sabadoNao = document.getElementById('sabado_nao');
+    const sabadoHorarios = document.getElementById('sabado-horarios');
+    const sabadoInicio = document.getElementById('sabado_inicio');
+    const sabadoFim = document.getElementById('sabado_fim');
+
+    function toggleSabadoHorarios()
+     {
+        if (sabadoSim.checked)
+        {
+            sabadoHorarios.style.display = 'flex';
+            sabadoInicio.required = true;
+            sabadoFim.required = true;
+        } 
+        else
+        {
+            sabadoHorarios.style.display = 'none';
+            sabadoInicio.required = false;
+            sabadoFim.required = false;
+            sabadoInicio.value = '';
+            sabadoFim.value = '';
+        }
+    }
+
+    sabadoSim.addEventListener('change', toggleSabadoHorarios);
+    sabadoNao.addEventListener('change', toggleSabadoHorarios);
+});
+    </script>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function()
+ {
+    const domingoSim = document.getElementById('domingo_sim');
+    const domingoNao = document.getElementById('domingo_nao');
+    const domingoHorarios = document.getElementById('domingo-horarios');
+    const domingoInicio = document.getElementById('domingo_inicio');
+    const domingoFim = document.getElementById('domingo_fim');
+
+    function toggleDomingoHorarios() 
+    {
+        if (domingoSim.checked) {
+            domingoHorarios.style.display = 'flex';
+            domingoInicio.required = true;
+            domingoFim.required = true;
+        } else {
+            domingoHorarios.style.display = 'none';
+            domingoInicio.required = false;
+            domingoFim.required = false;
+            domingoInicio.value = '';
+            domingoFim.value = '';
+        }
+    }
+
+    domingoSim.addEventListener('change', toggleDomingoHorarios);
+    domingoNao.addEventListener('change', toggleDomingoHorarios);
+});
+</script>
+</body>
+
+</html>

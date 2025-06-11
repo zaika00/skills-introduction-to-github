@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentos do funcionario</title>
+    <meta name="description" content="Formulário para admissão de funcionário">
+    <link rel="stylesheet" href="css/estilo.css">
+
+</head>
+
+
+
+<body>
+    
+<a href="Documentos_para_adimissao_de_funcionario_EMPREGADOR.html">Voltar para o formulário do empregador</a>
+
+<h1>INFORMAÇÕES PARA A ADMISSÃO DE FUNCIONÁRIOS</h1>
+<h2><u>Informações Necessárias do Funcionário</u></h2>
+
+
+        
+
+        <form> 
+            <div> 
+                <label for="nome_empregado">NOME DO EMPREGADO:</label>
+                <input id="nome_empregado" type="text" placeholder="Digite o seu nome" required>
+
+                <label for="nome_empresa">NOME DA EMPRESA:</label>
+                <input id="nome_empresa" type="text" placeholder="Digite o nome da empresa" required>
+            </div>
+
+
+            <label for="escolaridade">Escolaridade:</label>
+            <select id="escolaridade" required>
+                <option value="" disabled selected>Selecione a escolaridade</option>
+                <option value="analfabeto">Analfabeto</option>
+                <option value="fundamental_5">Ensino Fundamental até 5ª Incompleto</option>
+                <option value="fundamental_5completo">Ensino Fundamental 5ª Completo</option>
+                <option value="fundamental_6º_ao_9º">Ensino Fundamental 6º ao 9º</option>
+                <option value="fundamental_completo">Ensino Fundamental Completo</option>
+                <option value="medio_incompleto">Ensino Médio Incompleto</option>
+                <option value="medio_completo">Ensino Médio completo</option>
+                <option value="superior_incompleto">Superior incompleto</option>
+                <option value="cursando_superior">Cursando Superior</option>
+                <option value="superior_completo">Superior completo</option>
+
+            </select>
+     
+        
+        <br>
+
+       
+            <label for="estado_civil">Estado Civil</label>
+            <select id="estado_civil" required>
+                <option value="" disabled selected>Selecione o estado civil</option>
+                <option value="solteiro">Solteiro</option>
+                <option value="casado">Casado</option>
+                <option value="divorciado">Divorciado</option>
+                <option value="viuvo">Viúvo</option>
+                <option value="separado">Separado Judicialmente</option>
+                <option value="uniao_estavel">União Estável</option>
+            </select>   
+      
+
+        <br>
+
+       
+            <label for="raça">Raça/Cor</label>
+            <select name="raça_cor" id="raça">
+                <option value="" disabled selected>Selecione a raça/cor</option>
+                <option value="indigena">Indigena</option>
+                <option value="branca">Branca</option>
+                <option value="preta">Preta</option>
+                <option value="parda">Parda</option>
+                <option value="amarela">Amarela</option>
+            </select>
+        
+
+        <br>
+
+        <label for="telefone">Telefone:</label>
+        <input id="telefone" type="tel" placeholder="Digite seu telefone" required pattern="^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$" title="Digite um telefone válido, por exemplo: (11) 91234-5678" maxlength="15" style="width: calc(100% - 22px);">
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const telefoneInput = document.getElementById('telefone');
+    telefoneInput.addEventListener('input', function() {
+        let v = telefoneInput.value.replace(/\D/g, '');
+        if (v.length > 11) v = v.slice(0, 11);
+        if (v.length > 6) {
+            telefoneInput.value = `(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`;
+        } else if (v.length > 2) {
+            telefoneInput.value = `(${v.slice(0,2)}) ${v.slice(2)}`;
+        } else if (v.length > 0) {
+            telefoneInput.value = `(${v}`;
+        }
+    });
+});
+</script>
+        <br><br>
+
+        <label for="vale_transporte">Vale Transporte:</label>
+<div style="display: inline-block; margin-bottom: 18px;">
+    <input id="vale_transporte_sim" type="radio" name="vale_transporte" value="sim" required>
+    <label for="vale_transporte_sim" style="display:inline; margin-right:15px;">Sim</label>
+    <input id="vale_transporte_nao" type="radio" name="vale_transporte" value="nao" required>
+    <label for="vale_transporte_nao" style="display:inline;">Não</label>
+</div>
+
+        <br><br>
+
+        <label for="atestado_medico"><strong><u> O Atestado Medico Original.</u></strong></label>
+        <input id="atestado_medico" type="file" accept=".pdf,.jpg,.jpeg,.png" required>
+        <br><br>
+
+            <h3>FOTOCÓPIAS OBRIGATÓRIAS</h3>
+
+        <label for="cateira_trabalho" >Carteira De Trabalho Digital (CTPS Digital)</label>
+        <input id="foto_copias" type="file" accept=".pdf,.jpg,.jpeg,.png" required>
+
+        <br><br><br>
+
+        <label for="rg"><u>RG Carteira De Identidade</u> </label>
+        <input id="rg" type="file" accept=".pdf,.jpg,.jpeg,.png" required>
+
+        <br><br><br>
+
+        <label for="cpf"><u>CPF</u></label>
+        <input id="cpf" type="file" accept=".pdf,.jpg,.jpeg,.png" required>
+        <br><br><br>
+
+        <label for="comprovante_residencia"><u>Comprovante de Residência</u></label>
+        <input id="comprovante_residencia" type="file" accept=".pdf,.jpg,.jpeg,.png" required>
+
+        <br><br><br>
+
+        <label for="filho"><u>Possui Filho(os) Menor(es) de 14 Anos?</u></label>
+<div style="display: inline-block; margin-bottom: 18px;">
+    <input id="filho_sim" type="radio" name="filho" value="sim" required>
+    <label for="filho_sim" style="display:inline; margin-right:15px;">Sim</label>
+    <input id="filho_nao" type="radio" name="filho" value="nao" required>
+    <label for="filho_nao" style="display:inline;">Não</label>
+</div>
+
+        <div id="documento-filho-div" style="display:none; margin-top:10px;">
+            <label for="documento_filho"><u>Certidão(s) De Nacimento Do(s) Filho(s)</u></label>
+            <input id="documento_filho" name="documento_filho" type="file" accept=".pdf,.jpg,.jpeg,.png" required>
+            
+            <br><br><br>
+
+            <label for="cpf_filho"><u>CPF do(s) Filho(s)</u></label>
+            <input id="cpf_filho" name="cpf_filho" type="text" placeholder="Digite o CPF do(s) filho(s)" maxlength="14">
+
+            <br><br>
+
+            <label for="idade_filho"><u>Idade do(s) Filho(s)</u></label>
+            <input id="idade_filho" name="idade_filho" type="number" min="0" max="17" placeholder="Idade do(s) filho(s)" style="width: 95%;">
+
+            <div id="vacina-div" style="display:none; margin-top:10px;">
+                <label for="carteira_vacinacao"><u>Carteira de Vacinação (Obrigatória para filhos menores de 7 anos)</u></label>
+                <input id="carteira_vacinacao" name="carteira_vacinacao" type="file" accept=".pdf,.jpg,.jpeg,.png">
+            </div>
+            <div id="frequencia-div" style="display:none; margin-top:10px;">
+                <label for="declaracao_frequencia"><u>Declaração de Frequência Escolar (Obrigatória para filhos com 7 anos ou mais)</u></label>
+                <input id="declaracao_frequencia" name="declaracao_frequencia" type="file" accept=".pdf,.jpg,.jpeg,.png">
+            </div>
+        </div>
+
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filhoSim = document.getElementById('filho_sim');
+            const filhoNao = document.getElementById('filho_nao');
+            const docDiv = document.getElementById('documento-filho-div');
+            const docInput = document.getElementById('documento_filho');
+            const cpfFilho = document.getElementById('cpf_filho');
+            const idadeFilho = document.getElementById('idade_filho');
+            const vacinaDiv = document.getElementById('vacina-div');
+            const carteiraVacinacao = document.getElementById('carteira_vacinacao');
+            const frequenciaDiv = document.getElementById('frequencia-div');
+            const declaracaoFrequencia = document.getElementById('declaracao_frequencia');
+
+            function toggleDocFilho() 
+            {
+                if (filhoSim.checked) 
+                {
+                    docDiv.style.display = 'block';
+                    docInput.required = true;
+                    cpfFilho.required = true;
+                    idadeFilho.required = true;
+                }
+                 else
+                {
+                    docDiv.style.display = 'none';
+                    docInput.required = false;
+                    docInput.value = '';
+                    cpfFilho.required = false;
+                    cpfFilho.value = '';
+                    idadeFilho.required = false;
+                    idadeFilho.value = '';
+                    vacinaDiv.style.display = 'none';
+                    carteiraVacinacao.required = false;
+                    carteiraVacinacao.value = '';
+                    frequenciaDiv.style.display = 'none';
+                    declaracaoFrequencia.required = false;
+                    declaracaoFrequencia.value = '';
+                }
+            }
+
+            filhoSim.addEventListener('change', toggleDocFilho);
+            filhoNao.addEventListener('change', toggleDocFilho);
+
+            // Máscara simples para CPF
+            cpfFilho.addEventListener('input', function() {
+                let v = cpfFilho.value.replace(/\D/g, '').slice(0, 11);
+                v = v.replace(/(\d{3})(\d)/, '$1.$2');
+                v = v.replace(/(\d{3})(\d)/, '$1.$2');
+                v = v.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+                cpfFilho.value = v;
+            });
+
+            // Exibe campo de vacinação ou frequência escolar conforme idade
+            idadeFilho.addEventListener('input', function() 
+            {
+                if (idadeFilho.value !== "") 
+                {
+                    const idade = Number(idadeFilho.value);
+                    if (idade < 7) 
+                    {
+                        vacinaDiv.style.display = 'block';
+                        carteiraVacinacao.required = true;
+                        frequenciaDiv.style.display = 'none';
+                        declaracaoFrequencia.required = false;
+                        declaracaoFrequencia.value = '';
+                    } 
+                    else if (idade >= 7 && idade <= 14) 
+                    {
+                        vacinaDiv.style.display = 'none';
+                        carteiraVacinacao.required = false;
+                        carteiraVacinacao.value = '';
+                        frequenciaDiv.style.display = 'block';
+                        declaracaoFrequencia.required = true;
+                    }
+                     else
+                    {
+                        vacinaDiv.style.display = 'none';
+                        carteiraVacinacao.required = false;
+                        carteiraVacinacao.value = '';
+                        frequenciaDiv.style.display = 'none';
+                        declaracaoFrequencia.required = false;
+                        declaracaoFrequencia.value = '';
+                    }
+                } 
+                else 
+                {
+                    vacinaDiv.style.display = 'none';
+                    carteiraVacinacao.required = false;
+                    carteiraVacinacao.value = '';
+                    frequenciaDiv.style.display = 'none';
+                    declaracaoFrequencia.required = false;
+                    declaracaoFrequencia.value = '';
+                }
+            });
+        });
+        </script>
+        <br>
+
+        <hr>
+
+        <h2><u>Documentos Não Obrigatórios</u></h2>
+
+        <label for="psi">PIS</label>
+        <input id="psi" type="file" accept=".pdf,.jpg,.jpeg,.png">
+
+        <br><br><br>
+
+        <label for="titulo_eleitor">Título de Eleitor</label>
+        <input id="titulo_eleitor" type="file" accept=".pdf,.jpg,.jpeg,.png">
+
+        <br><br>
+
+        <input type="submit" value="Enviar">
+
+        <input type="reset" value="Limpar">
+
+    </form>
+
+        <div class="obs-contato-wrapper">
+    <div>
+        <h2 class="observacoes">Observações</h2>
+        <div class="observacoes">
+            <p>Certifique-se de que todos os documentos estejam atualizados e legíveis. A falta de algum documento pode atrasar o processo de admissão.</p>
+            <p>Para mais informações, entre em contato com o departamento Pessoal.</p>
+            <p>Obrigado por preencher as informações necessárias para a admissão.</p>
+        </div>
+    </div>
+    <div>
+        <h2 class="observacoes">Contatos</h2>
+        <div class="observacoes">
+            <p>Email: asdasdsda@gmail.com</p>
+            <p>Telefone: (11) 91234-5678</p>
+            <p>Endereço: Rua Exemplo, 123, Bairro, Cidade, Estado, CEP 12345-678</p>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+        
+</html>
